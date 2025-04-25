@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  postgres-db:
+    container_name: expensetracker
+    image: postgres # use latest official postgres version
+    restart: always
+    environment:
+      POSTGRES_USER: expense
+      POSTGRES_PASSWORD: tracker
+      POSTGRES_DB: expensetracker
+      POSTGRES_HOST_AUTH_METHOD: password
+    ports:
+      - "5438:5432"
+
+volumes:
+  postgresql_data:
+    driver: local
